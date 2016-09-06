@@ -22,10 +22,10 @@ public class ConducteurDAO {
         return em.createQuery("SELECT c FROM Conducteur c").getResultList();
     } 
     
-   public Conducteur RecupererUnConducteur(long id) {
+   public Conducteur RecupererUnConducteur(long idConducteur) {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         Query query=em.createQuery("SELECT c FROM Conducteur c WHERE c.id=:un");
-        query.setParameter("un", id);
+        query.setParameter("un", idConducteur);
         return (Conducteur)query.getSingleResult();
     }  
 

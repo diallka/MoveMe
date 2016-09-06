@@ -31,10 +31,10 @@ public class RecupUnCondServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        long id = Long.parseLong(req.getParameter("id"));
+        long idConducteur = Long.parseLong(req.getParameter("idConducteur"));
         
-        System.out.println("id...."+id);
-        Conducteur conducteur = new ConducteurDAO().RecupererUnConducteur(id);
+        System.out.println("id...."+idConducteur);
+        Conducteur conducteur = new ConducteurDAO().RecupererUnConducteur(idConducteur);
         System.out.println(conducteur);
         String json = new ObjectMapper().writeValueAsString(conducteur);
         resp.getWriter().println(json);
